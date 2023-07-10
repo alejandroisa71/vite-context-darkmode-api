@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
-import { useApiStore } from './store/apiStore';
+import { useFetchPokemons } from './store/useFetchPokemons';
 
 const App = () => {
-  const {pokemons,getPokemons} = useApiStore();
+  const { pokemons, getPokemons } = useFetchPokemons();
 
- useEffect(() => {
-  getPokemons()
- }, []);
+  useEffect(() => {
+    getPokemons();
+  }, []);
+
+  console.log(pokemons.results);
 
   return (
     <div>
-      
       <hr />
       {JSON.stringify(pokemons)}
     </div>
